@@ -110,8 +110,8 @@ def call_func(inputtext,method_name,opt_input,c):
         cmd='python docout.py'
         docp = os.popen(cmd).read()
         doc_content.write(docp)
-        doc_content.close()
         doc_content.flush()
+        doc_content.close()        
         docfunc_op()
 
         if len(opt_input) > 0:
