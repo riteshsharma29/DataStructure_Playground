@@ -10,7 +10,7 @@ c1,c2 = st.columns(2)
 c3,c4 = st.columns(2)
 
 with c1:
-    inputtext = st.text_input("Provide INPUT Datastructure <without quotes on both side")
+    inputtext = st.text_input("Provide INPUT Datastructure without quotes on both sides")
     inputtext = str(inputtext).strip()
 with c2:
     opt_input =  st.text_input("Provide Attribute Argument if required","")
