@@ -10,7 +10,7 @@ c1,c2 = st.columns(2)
 c3,c4 = st.columns(2)
 
 with c1:
-    inputtext = st.text_input("Provide INPUT Datastructure without quotes on both sides")
+    inputtext = st.text_input("Provide INPUT Datastructure <without quotes on both side")
     inputtext = str(inputtext).strip()
 with c2:
     opt_input =  st.text_input("Provide Attribute Argument if required","")
@@ -112,7 +112,7 @@ def call_func(inputtext,method_name,opt_input,c):
         docp = os.popen(cmd).read()
         doc_content.write(docp)
         doc_content.flush()
-        doc_content.close()        
+        doc_content.close()
         docfunc_op()
 
         if len(opt_input) > 0:
@@ -159,12 +159,10 @@ if len(inputtext) > 0 and choice == "string":
     method_name = st.sidebar.radio('Select Attribute Name',methods_list)
     with c3:
         call_func(inputtext,method_name,opt_input,choice)
-        if "None" in str(func_op()):
-            func_op = str(func_op())
-            func_op.replace("None","")
+        try:
             st.text_area("Attribute OUTPUT", func_op(), height=50)
-        else:
-            st.text_area("Attribute OUTPUT", func_op(), height=50)
+        except:
+            st.error()
     with c4:
         st.text_area("Attribute Documentation", docfunc_op(), height=400)
 elif len(inputtext) > 0 and choice == "list":
@@ -173,7 +171,10 @@ elif len(inputtext) > 0 and choice == "list":
     method_name = st.sidebar.radio('Select Attribute Name', methods_list)
     with c3:
         call_func(inputtext,method_name,opt_input,choice)
-        st.text_area("Attribute OUTPUT", func_op(), height=50)
+        try:
+            st.text_area("Attribute OUTPUT", func_op(), height=50)
+        except:
+            st.error()
     with c4:
         st.text_area("Attribute Documentation", docfunc_op(), height=400)
 elif len(inputtext) > 0 and choice == "tuple":
@@ -182,7 +183,10 @@ elif len(inputtext) > 0 and choice == "tuple":
     method_name = st.sidebar.radio('Select Attribute Name', methods_list)
     with c3:
         call_func(inputtext,method_name,opt_input,choice)
-        st.text_area("Attribute OUTPUT", func_op(), height=50)
+        try:
+            st.text_area("Attribute OUTPUT", func_op(), height=50)
+        except:
+            st.error()
     with c4:
         st.text_area("Attribute Documentation", docfunc_op(), height=400)
 elif len(inputtext) > 0 and choice == "dictionary":
@@ -191,7 +195,10 @@ elif len(inputtext) > 0 and choice == "dictionary":
     method_name = st.sidebar.radio('Select Attribute Name', methods_list)
     with c3:
         call_func(inputtext,method_name,opt_input,choice)
-        st.text_area("Attribute OUTPUT", func_op(), height=50)
+        try:
+            st.text_area("Attribute OUTPUT", func_op(), height=50)
+        except:
+            st.error()
     with c4:
         st.text_area("Attribute Documentation", docfunc_op(), height=400)
 elif len(inputtext) > 0 and choice == "set":
@@ -200,6 +207,9 @@ elif len(inputtext) > 0 and choice == "set":
     method_name = st.sidebar.radio('Select Attribute Name', methods_list)
     with c3:
         call_func(inputtext,method_name,opt_input,choice)
-        st.text_area("Attribute OUTPUT", func_op(), height=50)
+        try:
+            st.text_area("Attribute OUTPUT", func_op(), height=50)
+        except:
+            st.error()
     with c4:
         st.text_area("Attribute Documentation", docfunc_op(), height=400)
